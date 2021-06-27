@@ -18,4 +18,16 @@ class AddTest extends TestCase
             ->assertStatus(200)
             ->assertJson(['result' => 5]);
     }
+
+    /**
+     * @test
+     */
+    public function id_adds_numbers_from_arrays()
+    {
+        $this->postJson('/api/add', [
+            'numbers' => [1, 2, 3]
+        ])
+            ->assertStatus(200)
+            ->assertJson(['result' => 6]);
+    }
 }

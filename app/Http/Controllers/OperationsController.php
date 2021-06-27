@@ -13,12 +13,29 @@ class OperationsController extends Controller
      */
     public function add(Request $request)
     {
-        $request->validate([
-            'number_1' => 'required|numeric',
-            'number_2' => 'required|numeric',
-        ]);
+        $numbers = [];
 
-        $result = $request->input('number_1') + $request->input('number_2');
+        if ($request->has('numbers')) {
+            $request->validate([
+                'numbers' => 'array',
+                'numbers.*' => 'numeric'
+            ]);
+
+            $numbers = $request->input('numbers');
+
+        } else {
+            $request->validate([
+                'number_1' => 'required|numeric',
+                'number_2' => 'required|numeric',
+            ]);
+
+            $numbers = [
+                $request->input('number_1'),
+                $request->input('number_2')
+            ];
+        }
+
+        $result = array_sum($numbers);
 
         return ['result' => $result];
     }

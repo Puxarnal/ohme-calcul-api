@@ -16,6 +16,17 @@ POST /api/add
 RESPONSE: { "result": 5 }
 ```
 
+ou
+
+```
+POST /api/add
+{
+    "numbers": [2, 3]
+}
+
+RESPONSE: { "result": 5 }
+```
+
 - [x] Multiplication
 
 ```
@@ -28,15 +39,48 @@ POST /api/multiply
 RESPONSE: { "result": 6 }
 ```
 
-## Énoncé
+ou
 
-- Ajouter et documenter les fonctionnalités suivantes :
+```
+POST /api/multiply
+{
+    "numbers": [2, 3]
+}
 
-- [ ] Soustraction
-- [ ] Division
+RESPONSE: { "result": 6 }
+```
 
-- Pour l'addition et la multiplication, ajouter la possibilité d'envoyer un tableau `"numbers": [x, y, z]`, et d'obtenir la somme / le produit de tous ces nombres (tout en gardant la compatibilité avec les fonctionnalités existantes).
+- [x] Soustraction
 
-- Ajouter une fonctionnalité permettant de combiner à l'infini des opérations, par exemple :
+```
+POST /api/substract
+{
+    "number_1": 3
+    "number_2": 2
+}
 
-`[[34, '+', 32], '/', 3]` => doit renvoyer 22
+RESPONSE: { "result": 1 }
+```
+
+- [x] Division
+
+```
+POST /api/divide
+{
+    "number_1": 6
+    "number_2": 2
+}
+
+RESPONSE: { "result": 3 }
+```
+
+- [x] Opérations imbriquées
+
+```
+POST /api/nested
+{
+    "operations": [[34, '+', 32], '/', 3]
+}
+
+RESPONSE: { "result": 22 }
+```

@@ -56,4 +56,21 @@ class OperationsController extends Controller
 
         return ['result' => $result];
     }
+
+    /**
+     * Divides a number by another one
+     * @param Request $request
+     * @return array
+     */
+    public function divide(Request $request)
+    {
+        $request->validate([
+            'number_1' => 'required|numeric',
+            'number_2' => 'required|numeric'
+        ]);
+
+        $result = $request->input('number_1') / $request->input('number_2');
+
+        return ['result' => $result];
+    }
 }

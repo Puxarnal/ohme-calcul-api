@@ -24,3 +24,5 @@ Route::post('add', [OperationsController::class, 'add']);
 Route::post('multiply', [OperationsController::class, 'multiply']);
 
 Route::post('substract', [OperationsController::class, 'substract']);
+
+Route::post('divide', [OperationsController::class, 'divide']);

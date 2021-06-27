@@ -18,4 +18,14 @@ class MultiplyTest extends TestCase
             ->assertStatus(200)
             ->assertJson(['result' => 6]);
     }
+
+    /** @test */
+    public function it_multiplies_numbers_from_arrays()
+    {
+        $this->postJson('/api/multiply', [
+            'numbers' => [2, 3, 4]
+        ])
+            ->assertStatus(200)
+            ->assertJson(['result' => 24]);
+    }
 }

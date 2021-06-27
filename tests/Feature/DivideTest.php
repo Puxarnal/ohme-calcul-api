@@ -18,4 +18,16 @@ class DivideTest extends TestCase
             ->assertStatus(200)
             ->assertJson(['result' => 3]);
     }
+
+    /**
+     * @test
+     */
+    public function it_should_not_divide_by_zero()
+    {
+        $this->postJson('/api/divide', [
+            'number_1' => 2,
+            'number_2' => 0
+        ])
+            ->assertStatus(422);
+    }
 }

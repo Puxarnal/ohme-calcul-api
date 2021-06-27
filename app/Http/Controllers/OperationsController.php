@@ -106,7 +106,7 @@ class OperationsController extends Controller
     {
         $request->validate([
             'number_1' => 'required|numeric',
-            'number_2' => 'required|numeric'
+            'number_2' => 'required|numeric|not_in:0'
         ]);
 
         $result = $request->input('number_1') / $request->input('number_2');

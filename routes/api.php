@@ -26,3 +26,5 @@ Route::post('multiply', [OperationsController::class, 'multiply']);
 Route::post('substract', [OperationsController::class, 'substract']);
 
 Route::post('divide', [OperationsController::class, 'divide']);
+
+Route::post('nested', [OperationsController::class, 'nested']);
